@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🦊 Mozilla Todo</title>
+    <script src="./lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#add").click(function () {
+          let val = $("#txt").val();
+          if (val !== "") {
+            $("ul").append("<li>" + val + "</li>");
+            $("#txt").val("");
+          }
+        });
+        $("ul").on("click", "li", function () {
+          $(this).toggleClass("done");
+        });
+        $("ul").on("dblclick", "li", function () {
+          $(this).remove();
+        });
+      });
+    </script>
+    <style>
+      body {
+        background-color: #fafbfc;
+      }
+
+      .done {
+        text-decoration: line-through;
+      }
+
+      .box {
+        padding-left: 2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 align="center">🦊 Mozilla Todo</h1>
+    <ul>
+      <li>Buy a new phone</li>
+      <li>Call 🤙 your friend</li>
+    </ul>
+    <div class="box">
+      <input type="text" id="txt" />
+      <button id="add">Add</button>
+    </div>
+  </body>
+</html>

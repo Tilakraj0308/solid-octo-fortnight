@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>remove() and empty()</title>
+    <script src="./lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("button").click(function () {
+          $("#d").remove();
+          //   $("#d").empty();
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div
+      id="d"
+      style="
+        height: 200px;
+        width: 500px;
+        border: 3px solid green;
+        background-color: orange;
+      "
+    >
+      We are using div element in our example.
+      <p>A button is used for deletion.</p>
+      <p>The button calls out the remove() method to delete the element.</p>
+    </div>
+    <br />
+    <button>Delete the div element from the page.</button>
+  </body>
+</html>

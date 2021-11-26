@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mouseleave()</title>
+    <script src="./lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#par").mouseleave(function () {
+          alert("You left the paragraph element!");
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <p id="par">Take the cursor to the HTML element.</p>
+  </body>
+</html>

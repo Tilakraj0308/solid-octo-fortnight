@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sliding</title>
+    <script src="./lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#flip").click(function () {
+          $("#panel").slideToggle("fast");
+        });
+      });
+    </script>
+    <style>
+      #panel,
+      #flip {
+        padding: 10px;
+        text-align: left;
+        background-color: dodgerblue;
+        border: solid 5px purple;
+      }
+
+      #panel {
+        padding: 60px;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="flip">When this area is clicked, a panel emerges.</div>
+    <div id="panel">The panel greets the user with Merry Christmas!</div>
+  </body>
+</html>
