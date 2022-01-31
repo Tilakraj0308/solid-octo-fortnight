@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Question 5</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <style>
+    div {
+      display: none;
+      height: 200px;
+      width: 300px;
+      background-color: coral;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="slide-down">Slide down</button>
+  <button class="animate">Animate</button>
+  <button class="fade-in">Fade In</button>
+  <button class="hide">Hide</button>
+  <button class="show">Show</button>
+  <button class="attr">Attr</button>
+  <button class="html">HTML</button>
+  <hr />
+  <div></div>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".slide-down").click(function () {
+        $("div").slideDown();
+      });
+      $(".animate").click(function () {
+        $("div").animate({ width: "toggle" });
+      });
+      $(".fade-in").click(function () {
+        $("div").fadeIn();
+      });
+      $(".hide").click(function () {
+        $("div").hide();
+      });
+      $(".show").click(function () {
+        $("div").show();
+      });
+      $("div").mouseenter(function () {
+        $(this).text("Mouse entered");
+      });
+      $("div").mouseleave(function () {
+        $(this).text("Mouse left");
+      });
+      $("div").dblclick(function () {
+        $(this).text("You double clicked me!!!");
+      });
+      $(".attr").click(function () {
+        $("div").attr("style", "display:block; background: chocolate;");
+      });
+      $(".html").click(function () {
+        $("div").html("<b> I am bold </b>");
+      });
+    });
+  </script>
+
+</html>

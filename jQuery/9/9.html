@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <style>
+    * {
+      font-family: sans-serif;
+    }
+
+    h2,
+    h3 {
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Your turn buddy!!</h2>
+  <div>
+    <button id="rock" onclick="onClickHandler(this)">Rock</button>
+    <button id="paper" onclick="onClickHandler(this)">Paper</button>
+    <button id="scissors" onclick="onClickHandler(this)">Scissors</button>
+  </div>
+  <hr>
+  <h3>Scoreboard</h3>
+  <p id="cScore"></p>
+  <p id="yScore"></p>
+
+  <script>
+    let userChoice;
+
+    async function onClickHandler(e) {
+      userChoice = $(e).text().toLowerCase();
+      thinkPC();
+    }
+
+    function thinkPC() {
+      const choices = ["rock", "paper", "scissors"];
+      $("h2").text("Computer is thinking....")
+      setTimeout(() => {
+        const choice = choices[Math.floor(Math.random() * choices.length)]
+        $("h2").text(`You(${userChoice}) VS Computer(${choice})`)
+
+        setTimeout(() => {
+          checkWinner(userChoice, choice);
+        }, 300);
+
+      }, 1000);
+    }
+
+    async function checkWinner(user, pc) {
+      if (user == pc) {
+        alert("It's a tie!");
+      }
+      else if ((user == "rock" && pc == "scissors") || (user == "paper" && pc == "rock") || (user == "scissors" && pc == "paper")) {
+        alert("Yay!! You win!! :)")
+        let yScore = +localStorage.getItem("yScore");
+        localStorage.setItem("yScore", ++yScore)
+      } else {
+        alert("Better luck next time. You lose! :( ");
+        let cScore = +localStorage.getItem("cScore");
+        localStorage.setItem("cScore", ++cScore)
+      }
+      renderScores();
+    }
+
+    function renderScores() {
+      let cScore = localStorage.getItem("cScore"), yScore = localStorage.getItem("yScore");
+      $("#cScore").text("Computer: " + (cScore ?? 0));
+      $("#yScore").text("Your: " + (yScore ?? 0));
+    }
+
+    $(document).ready(() => {
+        renderScores();
+    })
+  </script>
+</body>
+
+</html>
